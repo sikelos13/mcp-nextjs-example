@@ -1,0 +1,547 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #FCFBFD;
+  --foreground: #1F2024;
+  --text-primary: #1F2024;
+  --text-secondary: #4B5563;
+  --text-muted: #4B5563;
+  --accent-gradient-start: #45A7DE;
+  --accent-gradient-end: #B6DE45;
+  --card-bg: #FCFBFD;
+  --footer-bg: #FFFFFF;
+  --border: rgba(136, 136, 136, 0.1);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Typography */
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  font-weight: 800;
+  font-family: 'Manrope', sans-serif;
+}
+
+h2 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+}
+
+p {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--foreground);
+  color: #FFFFFF;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--foreground);
+  color: #FFFFFF;
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Card */
+.service-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+/* Form Elements */
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.8);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  background-color: transparent;
+}
+
+.form-input::placeholder {
+  color: rgba(75, 85, 99, 0.8);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--foreground);
+}
+
+/* FAQ Accordion */
+.accordion-item {
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+}
+
+.accordion-button {
+  width: 100%;
+  padding: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Custom gradient borders */
+.border-gradient {
+  position: relative;
+  border-color: transparent;
+}
+
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(135deg, var(--accent-gradient-start) 25%, var(--accent-gradient-end) 100%);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Header */
+.header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Background Elements */
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.bg-circle-blue {
+  background: var(--accent-gradient-start);
+}
+
+.bg-circle-green {
+  background: var(--accent-gradient-end);
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-end));
+}
+
+/* Avatar */
+.avatar-container {
+  position: relative;
+  z-index: 10;
+}
+
+.avatar-bg {
+  background: linear-gradient(to bottom right, var(--accent-gradient-start), var(--accent-gradient-end));
+  border-radius: 50%;
+}
+
+/* Experience Section */
+.experience-logo-container {
+  border-radius: 0.75rem;
+  background-color: var(--background);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.experience-logo-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.experience-title {
+  position: relative;
+  display: inline-block;
+}
+
+.experience-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-end));
+  transition: width 0.3s ease;
+}
+
+.experience-item:hover .experience-title::after {
+  width: 100%;
+}
+
+.fade-in-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.experience-item {
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover .fade-in-content {
+  transform: translateY(-5px);
+}
+
+/* Footer/Contact Section */
+.social-icon-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon-container:hover {
+  transform: translateY(-3px);
+}
+
+/* Email container animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 134, 96, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 134, 96, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 134, 96, 0);
+  }
+}
+
+.contact-email-container:hover {
+  animation: pulseGlow 1.5s infinite;
+}
+
+/* Custom gradient borders */
+.border-gradient-blue {
+  position: relative;
+  border-color: transparent;
+}
+
+.border-gradient-blue::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(135deg, #4CA9FF 49%, #3BF686 100%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.border-gradient-green {
+  position: relative;
+  border-color: transparent;
+}
+
+.border-gradient-green::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(135deg, #3BF686 20%, #4CA9FF 93%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.border-gradient-alt {
+  position: relative;
+  border-color: transparent;
+}
+
+.border-gradient-alt::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(135deg, #3BF686 20%, #4CA9FF 93%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Background circle elements */
+.bg-circle {
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.bg-circle-blue {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+.bg-circle-green {
+  background: rgba(16, 185, 129, 0.5);
+}
+
+/* Gradient borders */
+.border-gradient {
+  position: relative;
+  background: linear-gradient(90deg, #62D9FF 0%, #3BF686 100%);
+  padding: 2px;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.border-gradient-blue {
+  position: relative;
+  background: linear-gradient(90deg, #4CA9FF 0%, #3BF686 100%);
+  padding: 2px;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.border-gradient-green {
+  position: relative;
+  background: linear-gradient(90deg, #3BF686 0%, #4CA9FF 100%);
+  padding: 2px;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.border-gradient-alt {
+  position: relative;
+  background: linear-gradient(90deg, #3BF686 0%, #4CA9FF 100%);
+  padding: 2px;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition-property: background-color, color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+.btn-primary {
+  background-color: #1F2024;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #343540;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #1F2024;
+  color: #1F2024;
+}
+
+.btn-outline:hover {
+  background-color: #1F2024;
+  color: #ffffff;
+}
+
+/* Focus and active states */
+*:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Additional utility classes */
+.text-gradient {
+  background: linear-gradient(90deg, #3B82F6 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Form elements */
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #E5E7EB;
+  background-color: #F9FAFB;
+  color: #1F2024;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  outline: none;
+}

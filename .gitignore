@@ -1,0 +1,21 @@
+# Start Generation Here
+# Node.js
+node_modules/
+npm-debug.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Logs
+logs/
+*.log
+
+# IDEs
+.idea/
+.vscode/
+
+# End Generation Here
